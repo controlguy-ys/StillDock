@@ -2,7 +2,7 @@
   "versions": {
     "1.0.0": {
       "date": "2026-09-12",
-      "build": 1,
+      "build": 2,
       "platform": "macOS",
       "highlights": [
         "JPEG, PNG, HEIC 사진을 원본 보존하며 공유용 복사본으로 내보내기",

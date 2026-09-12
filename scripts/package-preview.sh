@@ -2,7 +2,7 @@
 # Explicitly labeled development preview. This does not claim Developer ID signing or notarization.
 set -euo pipefail
 cd "$(dirname "$0")/.."
-STILLDOCK_PREVIEW_DMG="dist/StillDock-1.0.0-preview.1-unnotarized.dmg"
+STILLDOCK_PREVIEW_DMG="dist/StillDock-1.0.0-preview.2-unnotarized.dmg"
 test ! -e "$STILLDOCK_PREVIEW_DMG"
 mkdir -p dist
 STILLDOCK_PREVIEW_STAGE=$(mktemp -d "$PWD/dist/preview.XXXXXX")

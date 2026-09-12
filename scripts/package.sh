@@ -21,7 +21,7 @@ STILLDOCK_KEYCHAIN_ARGS=()
 if test -n "${STILLDOCK_SIGN_KEYCHAIN:-}"; then
   STILLDOCK_KEYCHAIN_ARGS=(--keychain "$STILLDOCK_SIGN_KEYCHAIN")
 fi
-codesign --force --sign "$STILLDOCK_SIGN_IDENTITY" "${STILLDOCK_KEYCHAIN_ARGS[@]}" --options runtime --timestamp "$STILLDOCK_STAGE/StillDock.app"
+codesign --force --sign "$STILLDOCK_SIGN_IDENTITY" "${STILLDOCK_KEYCHAIN_ARGS[@]}" --entitlements App/StillDock.entitlements --options runtime --timestamp "$STILLDOCK_STAGE/StillDock.app"
 codesign --verify --deep --strict "$STILLDOCK_STAGE/StillDock.app"
 lipo "$STILLDOCK_STAGE/StillDock.app/Contents/MacOS/StillDock" -verify_arch arm64 x86_64
 ln -s /Applications "$STILLDOCK_STAGE/Applications"

@@ -2,6 +2,8 @@ StillDock helps prepare sharing copies of photos on your Mac. Originals stay int
 
 **Developer preview: ad hoc signed, not notarized.** Gatekeeper may block a downloaded copy. Developer ID certificate issuance and Apple notarization are pending. This is not an App Store or notarized release.
 
+Preview 2 removes the development debugger entitlement from the distributed app. Hardened runtime remains enabled.
+
 - macOS 14+, universal arm64/x86_64 build. Native execution tested on Apple silicon with macOS 26.6.
 - 20 core tests passed, including HEIC, all eight orientations, alpha, metadata fixtures, original hashes and concurrent no-overwrite exports.
 - Native JPEG/PNG export, partial failure reporting and reset were exercised. Exported files were independently decoded and checked.

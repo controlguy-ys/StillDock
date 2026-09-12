@@ -1,6 +1,6 @@
 # StillDock 1.0.0 validation
 
-Validation date: 2026-09-12. Build 1. Native runtime host: Apple silicon, macOS 26.6 (25G72), Xcode 26.6. Minimum deployment target: macOS 14.
+Validation date: 2026-09-12. Current build: 2. Native runtime host: Apple silicon, macOS 26.6 (25G72), Xcode 26.6. Minimum deployment target: macOS 14.
 
 ## Verified core behavior
 
@@ -22,6 +22,8 @@ Every successful export is read back from disk and checked against the encoded b
 ## Independent review and corrections
 
 An independent reviewer found no unresolved release-blocking core defect. Review led to nonblocking final-file reopen and regular-file verification, plus stronger source-fixture assertions. A native launch test found a dynamic library signing mismatch that compile checks had missed; the core is now statically linked while hardened runtime remains enabled.
+
+Final entitlement inspection found Xcode had injected a development debugger permission into the ad hoc build. Preview 2 disables base entitlement injection and explicitly signs with an empty entitlement set. Preview 1 is superseded.
 
 Apple's ImageIO can salvage a damaged JPEG whose entropy data ends early. An independent synthetic probe confirmed this. The app and README advise inspecting the preview and exported copy; output validation does not claim the original was intact.
 
