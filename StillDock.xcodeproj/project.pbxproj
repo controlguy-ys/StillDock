@@ -1,0 +1,467 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		14A0F22F077CC017D0B8FF53 /* AppIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = AEC7C0381C442EDE76DA70F8 /* AppIcon.icns */; };
+		2175F58662BEA428ABE9DCF5 /* WorkbenchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98863E0E4BB70FCFC23049A2 /* WorkbenchModel.swift */; };
+		26A33585BCDE784E7E6578AC /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309BC5C58346A9E0F07C4877 /* ImageProcessor.swift */; };
+		8CAA61D8DD5E6CFF458B6A45 /* StillDockApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541953419AE35F5A3B8DFDE6 /* StillDockApp.swift */; };
+		D9CF30476EA17BCCE47546EE /* WorkbenchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AF7C1239BA995B56CD43C0 /* WorkbenchView.swift */; };
+		E85AF8C392D31005284C0C2D /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 048D6BE518673E50DEDFEB17 /* PrivacyInfo.xcprivacy */; };
+		F66D4DB5B799FB8F9D82E40F /* libStillDockCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C7A78C2EFF3EAD67C0ABB352 /* libStillDockCore.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C86660B561DB3DF31D8DBD03 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 52D7BAB44CA147E762F1993A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D43E527E9FA96B41E33CDC78;
+			remoteInfo = StillDockCore;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		048D6BE518673E50DEDFEB17 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		0B9ADB005A7AF77232EAC386 /* StillDock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StillDock.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		309BC5C58346A9E0F07C4877 /* ImageProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProcessor.swift; sourceTree = "<group>"; };
+		541953419AE35F5A3B8DFDE6 /* StillDockApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StillDockApp.swift; sourceTree = "<group>"; };
+		98863E0E4BB70FCFC23049A2 /* WorkbenchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkbenchModel.swift; sourceTree = "<group>"; };
+		AEC7C0381C442EDE76DA70F8 /* AppIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = AppIcon.icns; sourceTree = "<group>"; };
+		C7A78C2EFF3EAD67C0ABB352 /* libStillDockCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libStillDockCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1AF7C1239BA995B56CD43C0 /* WorkbenchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkbenchView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		363B0AC3C3A20C2B150141E4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F66D4DB5B799FB8F9D82E40F /* libStillDockCore.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		01F1E186D5948F9F344BB65C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AEC7C0381C442EDE76DA70F8 /* AppIcon.icns */,
+				048D6BE518673E50DEDFEB17 /* PrivacyInfo.xcprivacy */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0C73C0093A62B30B1D2755FB = {
+			isa = PBXGroup;
+			children = (
+				A2259A66C65CB8EB3AE2531A /* App */,
+				4108C624C84EA756D3220A21 /* Core */,
+				01F1E186D5948F9F344BB65C /* Resources */,
+				FD3FECC15A6AF97156479214 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4108C624C84EA756D3220A21 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				309BC5C58346A9E0F07C4877 /* ImageProcessor.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		A2259A66C65CB8EB3AE2531A /* App */ = {
+			isa = PBXGroup;
+			children = (
+				541953419AE35F5A3B8DFDE6 /* StillDockApp.swift */,
+				98863E0E4BB70FCFC23049A2 /* WorkbenchModel.swift */,
+				D1AF7C1239BA995B56CD43C0 /* WorkbenchView.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		FD3FECC15A6AF97156479214 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C7A78C2EFF3EAD67C0ABB352 /* libStillDockCore.a */,
+				0B9ADB005A7AF77232EAC386 /* StillDock.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CA7B6F319A1740B834CFCAB1 /* StillDock */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8212AB1555C963E6747F937B /* Build configuration list for PBXNativeTarget "StillDock" */;
+			buildPhases = (
+				68366661846EB1D67B3675E8 /* Sources */,
+				CAC5162BC75C5A7DCD39F9B4 /* Resources */,
+				363B0AC3C3A20C2B150141E4 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F03BEACFE3557C68C28C4E3C /* PBXTargetDependency */,
+			);
+			name = StillDock;
+			packageProductDependencies = (
+			);
+			productName = StillDock;
+			productReference = 0B9ADB005A7AF77232EAC386 /* StillDock.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D43E527E9FA96B41E33CDC78 /* StillDockCore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D98949DB466CDE35E2F53225 /* Build configuration list for PBXNativeTarget "StillDockCore" */;
+			buildPhases = (
+				BAA2CE191690CDF1B361F169 /* Sources */,
+				0A0D834250E09DDF6BA46F28 /* Copy Swift Objective-C Interface Header */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = StillDockCore;
+			packageProductDependencies = (
+			);
+			productName = StillDockCore;
+			productReference = C7A78C2EFF3EAD67C0ABB352 /* libStillDockCore.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		52D7BAB44CA147E762F1993A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					CA7B6F319A1740B834CFCAB1 = {
+						ProvisioningStyle = Manual;
+					};
+					D43E527E9FA96B41E33CDC78 = {
+						ProvisioningStyle = Manual;
+					};
+				};
+			};
+			buildConfigurationList = BA31E9C2380891368303F41E /* Build configuration list for PBXProject "StillDock" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 0C73C0093A62B30B1D2755FB;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = FD3FECC15A6AF97156479214 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D43E527E9FA96B41E33CDC78 /* StillDockCore */,
+				CA7B6F319A1740B834CFCAB1 /* StillDock */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CAC5162BC75C5A7DCD39F9B4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14A0F22F077CC017D0B8FF53 /* AppIcon.icns in Resources */,
+				E85AF8C392D31005284C0C2D /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0A0D834250E09DDF6BA46F28 /* Copy Swift Objective-C Interface Header */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(DERIVED_SOURCES_DIR)/$(SWIFT_OBJC_INTERFACE_HEADER_NAME)",
+			);
+			name = "Copy Swift Objective-C Interface Header";
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/include/$(PRODUCT_MODULE_NAME)/$(SWIFT_OBJC_INTERFACE_HEADER_NAME)",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "ditto \"${SCRIPT_INPUT_FILE_0}\" \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		68366661846EB1D67B3675E8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8CAA61D8DD5E6CFF458B6A45 /* StillDockApp.swift in Sources */,
+				2175F58662BEA428ABE9DCF5 /* WorkbenchModel.swift in Sources */,
+				D9CF30476EA17BCCE47546EE /* WorkbenchView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BAA2CE191690CDF1B361F169 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26A33585BCDE784E7E6578AC /* ImageProcessor.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F03BEACFE3557C68C28C4E3C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D43E527E9FA96B41E33CDC78 /* StillDockCore */;
+			targetProxy = C86660B561DB3DF31D8DBD03 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0611C637873C3C7BB052F166 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_APP_SANDBOX = NO;
+				INFOPLIST_FILE = App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nightworks.stilldock;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		077379242715DE128969EB55 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "arm64 x86_64";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		0CD0DA812D0937A609C0B20F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_APP_SANDBOX = NO;
+				INFOPLIST_FILE = App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nightworks.stilldock;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		2B1B35B1CAC06B2B3E5B7EEE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nightworks.stilldock.core;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		56C5DE673A7F83CDD09BF05E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nightworks.stilldock.core;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		982691FF000D42EA37934B6F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "arm64 x86_64";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8212AB1555C963E6747F937B /* Build configuration list for PBXNativeTarget "StillDock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0611C637873C3C7BB052F166 /* Debug */,
+				0CD0DA812D0937A609C0B20F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		BA31E9C2380891368303F41E /* Build configuration list for PBXProject "StillDock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				982691FF000D42EA37934B6F /* Debug */,
+				077379242715DE128969EB55 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		D98949DB466CDE35E2F53225 /* Build configuration list for PBXNativeTarget "StillDockCore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				56C5DE673A7F83CDD09BF05E /* Debug */,
+				2B1B35B1CAC06B2B3E5B7EEE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 52D7BAB44CA147E762F1993A /* Project object */;
+}

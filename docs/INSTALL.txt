@@ -1,0 +1,17 @@
+StillDock 1.0.0
+
+macOS 14 or later · Apple silicon and Intel
+
+Drag StillDock to Applications, then open it from Applications.
+Add photos with the + button or Command-O. Select JPEG/PNG and a size,
+then choose a folder for the exported copies.
+
+원본을 보존한 사진 공유용 복사본을 만듭니다.
+StillDock을 Applications로 옮긴 후 실행하세요.
+사진 추가 → 형식과 크기 선택 → 저장 위치 선택 순서로 사용합니다.
+
+All processing stays on your Mac. Visible faces, addresses and text remain.
+An output folder synchronized by another service follows that service's settings.
+Output is 8-bit sRGB SDR; JPEG is lossy. Files may become larger.
+
+Support and source: https://github.com/controlguy-ys/StillDock

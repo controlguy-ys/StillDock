@@ -1,0 +1,38 @@
+# StillDock product research
+
+Research date: 2026-09-12. This is a bounded comparison of existing capabilities and implementation feasibility, not evidence of market demand or a claim that the idea is unique.
+
+## Candidate comparison
+
+| Candidate | Existing capability | Decision |
+| --- | --- | --- |
+| Share-ready image export | Preview already supports batch conversion and resizing. ImageOptim already removes EXIF, GPS, embedded thumbnails, and comments. | Selected: combine separate-copy export, a small set of batch settings, and verification of exported files in one native workflow. |
+| Batch filename cleanup | Finder already provides replacement, prefix/suffix text, and numbered or dated names. | Less room for a useful small first release; changes also affect users' existing file organization. |
+| Extract text from image batches | Preview already offers Live Text copying from photos. | A batch organizer is possible, but recognition quality and reading order add validation work beyond the initial scope. |
+
+Sources: Apple's [image conversion guide](https://support.apple.com/en-my/guide/preview/prvw1012/mac), [resize guide](https://support.apple.com/en-gb/guide/preview/prvw2015/mac), [Finder renaming guide](https://support.apple.com/guide/mac-help/rename-files-folders-and-disks-on-mac-mchlp1144/mac), and [Live Text guide](https://support.apple.com/en-gb/guide/preview/prvw625a5b2c/mac); the official [ImageOptim product page](https://imageoptim.com/mac).
+
+## Why StillDock
+
+StillDock helps someone prepare several photos for sharing while keeping the source files intact. The intended benefit is a clear, short workflow: add images, choose output size and format, export separate files, and see which exports passed validation. Batch conversion and metadata removal are established features, so neither should be presented as an invention or unique competitive advantage.
+
+The first release uses native macOS controls and ImageIO/CoreGraphics with no account, analytics, network service, or third-party runtime dependency. Its scope is JPEG, PNG, and HEIC/HEIF still input with JPEG or PNG output. Animated and multi-frame inputs are rejected. There is no photo-library integration, cloud publishing, OCR, face or document redaction, RAW workflow, or promise to preserve HDR, depth data, or Live Photos.
+
+## Claims and privacy boundary
+
+- Describe the result as a **new sharing copy without source GPS and capture metadata**, after output validation. Do not claim complete anonymity, immunity to tracking, or the absence of every possible metadata field.
+- Faces, addresses, documents, and other identifying details visible in the image remain visible. Removing embedded metadata does not redact image content.
+- Original filenames can contain personal information. A generated-name option can avoid carrying those names into exports; filenames and filesystem timestamps are distinct from embedded photo metadata.
+- The application performs processing locally. A folder selected by the user may be synchronized by iCloud or another external service; local processing is not a guarantee that the selected folder never syncs.
+- Fresh encoding can change pixels or color appearance, and JPEG encoding is lossy. Avoid claims of lossless conversion, identical color, or guaranteed smaller files.
+- Generic output properties such as dimensions, encoding information, JFIF fields, and a standard sRGB profile are different from source GPS, camera, author, comment, or capture-time information. Validation and user-facing copy must preserve that distinction.
+
+## Engineering implications
+
+Use a new pixel encode and do not pass source property dictionaries or auxiliary data to the destination. Apple's [image destination API](https://developer.apple.com/documentation/imageio/cgimagedestination) exposes separate operations for adding pixel images, source images, metadata, and auxiliary data. The fresh-encode approach is a project implementation choice that makes the source-metadata boundary easier to inspect; the API documentation alone is not proof that an implementation has removed everything.
+
+Apply orientation to pixels once. Apple's [thumbnail transform option](https://developer.apple.com/documentation/imageio/kcgimagesourcecreatethumbnailwithtransform) rotates and scales to match orientation and aspect ratio. Generate from the image rather than relying on an embedded thumbnail, and do not reapply the source orientation tag after transforming pixels. Preserve PNG transparency and explicitly composite a background for JPEG.
+
+Reopen every completed output and check decodability, format, dimensions, and the supported sensitive-metadata policy before reporting success. Keep exports separate and never overwrite existing files. Verify orientation variants, transparent input, deliberately tagged synthetic fixtures, corrupt input, duplicate names, cancellation, and unchanged source hashes. Technical properties generated by the encoder require an explicit allowlist rather than a blanket assertion that all metadata is absent.
+
+Apple also documents [metadata editing without recompression](https://developer.apple.com/library/archive/qa/qa1895/_index.html). That is a different engineering option; StillDock's resize/format workflow deliberately uses fresh pixel encoding and must disclose its quality boundary.

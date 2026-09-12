@@ -1,0 +1,61 @@
+name: StillDock
+options:
+  minimumXcodeGenVersion: 2.44.0
+  deploymentTarget:
+    macOS: '14.0'
+  createIntermediateGroups: true
+settings:
+  base:
+    SWIFT_VERSION: '5.0'
+    MACOSX_DEPLOYMENT_TARGET: '14.0'
+    CODE_SIGN_STYLE: Manual
+    CODE_SIGN_IDENTITY: '-'
+    ENABLE_HARDENED_RUNTIME: YES
+    CURRENT_PROJECT_VERSION: 1
+    MARKETING_VERSION: 1.0.0
+    ARCHS: 'arm64 x86_64'
+targets:
+  StillDockCore:
+    type: library.static
+    platform: macOS
+    sources: [Core]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.nightworks.stilldock.core
+        DEFINES_MODULE: YES
+        GENERATE_INFOPLIST_FILE: YES
+        SKIP_INSTALL: YES
+  StillDock:
+    type: application
+    platform: macOS
+    sources:
+      - path: App
+        excludes: [Info.plist]
+      - path: Resources
+    dependencies:
+      - target: StillDockCore
+        embed: false
+    info:
+      path: App/Info.plist
+      properties:
+        CFBundleDisplayName: StillDock
+        CFBundleShortVersionString: '$(MARKETING_VERSION)'
+        CFBundleVersion: '$(CURRENT_PROJECT_VERSION)'
+        CFBundleIconFile: AppIcon
+        LSApplicationCategoryType: public.app-category.photography
+        NSHumanReadableCopyright: Copyright © 2026 StillDock
+        NSHighResolutionCapable: true
+        NSSupportsAutomaticTermination: false
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.nightworks.stilldock
+        COMBINE_HIDPI_IMAGES: YES
+        ENABLE_APP_SANDBOX: NO
+        LD_RUNPATH_SEARCH_PATHS: '$(inherited) @executable_path/../Frameworks'
+schemes:
+  StillDock:
+    build:
+      targets:
+        StillDock: all
+    archive:
+      config: Release
