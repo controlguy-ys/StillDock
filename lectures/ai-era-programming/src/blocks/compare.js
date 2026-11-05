@@ -146,11 +146,13 @@ async function contact(ctx, box, data) {
   prim.text(slide, { ...inner, y, h: ctx.lh(K.nameSize) }, data.name, { tone: 'paper', fontSize: K.nameSize, bold: true, name: 'contact-name' });
   y += ctx.lh(K.nameSize);
   prim.text(slide, { ...inner, y, h: ctx.lh(K.lineSize, data.lines.length) }, data.lines.join('\n'), { tone: 'paper2', fontSize: K.lineSize, name: 'contact-lines' });
-  const tagline = [].concat(data.tagline).join('\n');
-  const tagH = ctx.lh(K.taglineSize, [].concat(data.tagline).length);
-  prim.text(slide, { ...inner, y: box.y + box.h - K.pad - tagH, h: tagH }, tagline, {
-    tone: 'highlight', fontSize: K.taglineSize, bold: true, valign: 'bottom', name: 'contact-tagline',
-  });
+  if (data.tagline) {
+    const lines = [].concat(data.tagline);
+    const tagH = ctx.lh(K.taglineSize, lines.length);
+    prim.text(slide, { ...inner, y: box.y + box.h - K.pad - tagH, h: tagH }, lines.join('\n'), {
+      tone: 'highlight', fontSize: K.taglineSize, bold: true, valign: 'bottom', name: 'contact-tagline',
+    });
+  }
 }
 
 module.exports = { quoteCard, compareFlow, compareStatements, shiftTable, statements, contact };

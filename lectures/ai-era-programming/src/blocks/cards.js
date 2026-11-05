@@ -1,6 +1,5 @@
 'use strict';
 /** Card-based blocks: agenda, profile, stats, cards. */
-const { formatClock } = require('../lib/timing');
 
 function splitRow(box, n, gap) {
   const w = (box.w - (n - 1) * gap) / n;
@@ -8,32 +7,23 @@ function splitRow(box, n, gap) {
 }
 
 async function agenda(ctx, box, data) {
-  const { slide, prim, theme, schedule, sectionTitles } = ctx;
+  const { slide, prim, theme } = ctx;
   const A = theme.blocks.agenda;
-  const T = theme.type;
-  const cells = splitRow(box, data.items.length, theme.grid.gap);
+  const n = data.items.length;
+  const rowH = (box.h - (n - 1) * theme.shape.listGap) / n;
+  const questionX = box.x + A.pad + A.labelW;
+  const descX = box.x + box.w * A.descFrac;
   for (const [i, item] of data.items.entries()) {
-    const c = cells[i];
-    const inner = { x: c.x + A.pad, w: c.w - 2 * A.pad };
-    prim.card(slide, c, { name: 'agenda-card' });
-    prim.text(slide, { ...inner, y: c.y + A.pad, h: A.labelH }, `${data.label}${i + 1}`, {
+    const r = { x: box.x, y: box.y + i * (rowH + theme.shape.listGap), w: box.w, h: rowH };
+    prim.card(slide, r, { name: 'agenda-row' });
+    prim.text(slide, { x: box.x + A.pad, y: r.y, w: A.labelW, h: r.h }, `${data.label}${i + 1}`, {
       tone: 'accent', fontSize: A.labelSize, bold: true, valign: 'middle', name: 'agenda-label',
     });
-    const d = theme.shape.iconCircle;
-    await prim.iconCircle(slide, { x: c.x + c.w - A.pad - d, y: c.y + A.pad + (A.labelH - d) / 2, icon: item.icon, tone: 'accent', alt: item.question });
-    let y = c.y + A.pad + A.labelH + A.pad / 2;
-    prim.text(slide, { ...inner, y, h: A.questionH }, item.question, { fontSize: A.questionSize, bold: true, name: 'agenda-q' });
-    y += A.questionH;
-    prim.text(slide, { ...inner, y, h: A.descH }, item.desc, { tone: 'ink2', fontSize: T.body, name: 'agenda-desc' });
-
-    const span = schedule.sectionSpan(item.sections);
-    const bottom = c.y + c.h - A.pad;
-    const chipY = bottom - theme.shape.chipH;
-    prim.pill(slide, { x: inner.x, y: chipY, label: `${formatClock(span.start)} – ${formatClock(span.end)}`, tone: 'ink', fontSize: T.small, name: 'agenda-time' });
-    const sectionsText = item.sections.map((s) => sectionTitles[s]).join(' · ');
-    const sectionsH = ctx.lh(T.small, ctx.measure.lineCount(sectionsText, T.small, inner.w));
-    prim.text(slide, { ...inner, y: chipY - sectionsH - A.pad / 3, h: sectionsH }, sectionsText, {
-      tone: 'muted', fontSize: T.small, bold: true, valign: 'bottom', name: 'agenda-sections',
+    prim.text(slide, { x: questionX, y: r.y, w: descX - questionX - A.pad, h: r.h }, item.question, {
+      fontSize: A.questionSize, bold: true, valign: 'middle', name: 'agenda-q',
+    });
+    prim.text(slide, { x: descX, y: r.y, w: box.x + box.w - A.pad - descX, h: r.h }, item.desc, {
+      tone: 'ink2', fontSize: A.descSize, valign: 'middle', name: 'agenda-desc',
     });
   }
 }
@@ -114,7 +104,7 @@ async function cards(ctx, box, data) {
   const gap = data.arrows ? K.arrowGap : theme.grid.gap;
   const cells = splitRow(box, data.columns || data.items.length, gap);
   const emphasized = new Set(data.emphasize || []);
-  // Same description height on every card so meters and footers line up across the row.
+  // Same description height on every card so footers line up across the row.
   const descLines = Math.max(...data.items.map((it) => ctx.measure.lineCount(it.desc, K.descSize, cells[0].w - 2 * K.pad)));
 
   for (const [i, item] of data.items.entries()) {
@@ -146,22 +136,6 @@ async function cards(ctx, box, data) {
       prim.text(slide, { ...inner, y, h: descH }, item.desc, { tone: tones.sub, fontSize: K.descSize, name: 'card-desc' });
       y += descH;
 
-      // Optional segmented meter (e.g. how much the AI does on its own).
-      if (item.level !== undefined && data.meter) {
-        y += K.pad;
-        const labelH = ctx.lh(T.caption);
-        prim.text(slide, { ...inner, y, h: labelH }, data.meter.label, { tone: tones.muted, fontSize: T.caption, bold: true, name: 'card-meter-label' });
-        y += labelH + K.segGap;
-        const segW = (inner.w - (data.meter.max - 1) * K.segGap) / data.meter.max;
-        for (let k = 0; k < data.meter.max; k += 1) {
-          const on = k < item.level;
-          prim.card(slide, { x: inner.x + k * (segW + K.segGap), y, w: segW, h: K.segH }, {
-            tone: on ? (dark ? 'highlight' : 'accent') : (dark ? 'paper2' : 'muted'),
-            transparency: on ? 0 : theme.tint.medium, withShadow: false, radius: K.segH / 2, name: 'card-meter',
-          });
-        }
-        y += K.segH;
-      }
 
       // Bottom-anchored footer: rule, role label + text, example line.
       const footH = ctx.lh(T.caption);

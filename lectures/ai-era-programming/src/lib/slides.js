@@ -35,7 +35,15 @@ function createSlideRenderer(env) {
     const slide = pres.addSlide({ masterName: data.layout, sectionTitle });
     slide._deckSlideId = data.id;
 
-    if (data.kicker) slide.addText(data.kicker, { placeholder: 'kicker', bullet: false });
+    if (data.kicker) {
+      const k = theme.grid.kicker;
+      const ky = data.layout === layouts.DARK ? theme.dark.kicker.y : k.y;
+      slide.addShape(pres.shapes.OVAL, {
+        x: theme.grid.marginX, y: ky + (k.h - k.dot) / 2, w: k.dot, h: k.dot,
+        fill: { color: env.palette.scheme('accent') }, line: { type: 'none' }, objectName: env.naming.next('kicker-dot'),
+      });
+      slide.addText(data.kicker, { placeholder: 'kicker', bullet: false });
+    }
     slide.addText(data.title, { placeholder: 'title', bullet: false });
     if (data.lead) slide.addText(data.lead, { placeholder: 'lead', bullet: false });
 

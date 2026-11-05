@@ -16,17 +16,6 @@ function defineLayouts({ pres, theme, palette, meta }) {
   const innerW = page.w - 2 * grid.marginX;
   const kicker = grid.kicker;
 
-  const kickerDot = (y) => ({
-    text: {
-      text: '',
-      options: {
-        shape: pres.shapes.OVAL,
-        x: grid.marginX, y: y + (kicker.h - kicker.dot) / 2, w: kicker.dot, h: kicker.dot,
-        fill: { color: palette.scheme('accent') }, line: { type: 'none' },
-      },
-    },
-  });
-
   const kickerPh = (y) => placeholder('kicker', 'body', {
     x: grid.marginX + kicker.indent, y, w: innerW - kicker.indent, h: kicker.h,
     fontSize: type.kicker, bold: true, charSpacing: type.kickerCharSpacing,
@@ -37,7 +26,6 @@ function defineLayouts({ pres, theme, palette, meta }) {
     title: LAYOUTS.CONTENT,
     background: { color: palette.scheme('paper2') },
     objects: [
-      kickerDot(kicker.y),
       kickerPh(kicker.y),
       placeholder('title', 'title', {
         x: grid.marginX, y: grid.title.y, w: innerW, h: grid.title.h,
@@ -67,7 +55,6 @@ function defineLayouts({ pres, theme, palette, meta }) {
     title: LAYOUTS.DARK,
     background: { color: palette.scheme('ink') },
     objects: [
-      kickerDot(dark.kicker.y),
       kickerPh(dark.kicker.y),
       placeholder('title', 'title', {
         x: grid.marginX, y: dark.title.y, w: dark.titleColW, h: dark.title.h,

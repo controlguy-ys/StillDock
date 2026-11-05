@@ -15,11 +15,10 @@ async function steps(ctx, box, data) {
   const cols = stepBoxes(box, n, P.arrowGap);
   const highlight = new Set(data.highlight || []);
   const stepH = data.brackets ? box.h - chipH - P.bracketGap : box.h;
-  const d = theme.shape.iconCircle;
-  const badgeD = theme.shape.badge;
+  const d = P.icon;
 
   // Vertical stack inside a step card, centred as a group.
-  const stackH = (data.numbered ? badgeD + P.itemGap : 0) + d + P.itemGap + P.titleH + P.descH;
+  const stackH = d + P.itemGap + P.titleH + P.descH;
   for (const [i, item] of data.items.entries()) {
     const c = { x: cols[i].x, y: box.y, w: cols[i].w, h: stepH };
     const hl = highlight.has(i);
@@ -28,10 +27,6 @@ async function steps(ctx, box, data) {
       ? { tone: hlTone, transparency: theme.tint.medium, line: hlTone, name: 'step-card' }
       : { name: 'step-card' });
     let y = c.y + Math.max(P.pad, (c.h - stackH) / 2);
-    if (data.numbered) {
-      prim.badge(slide, { x: c.x + (c.w - badgeD) / 2, y, d: badgeD, label: i + 1, tone: 'ink', fontSize: T.small, name: 'step-no' });
-      y += badgeD + P.itemGap;
-    }
     await prim.iconCircle(slide, { x: c.x + (c.w - d) / 2, y, d, icon: item.icon, tone: hl ? hlTone : 'accent', variant: hl ? 'solid' : 'tint', alt: item.title });
     y += d + P.itemGap;
     const inner = { x: c.x + P.pad, w: c.w - 2 * P.pad };

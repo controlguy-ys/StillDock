@@ -87,7 +87,7 @@ async function code(ctx, box, data) {
   const textBox = { x: box.x + pad, y: box.y + C.barH + B.textInsetY, w: box.w - 2 * pad, h: box.h - C.barH - B.textInsetY - pad / 2 };
   prim.text(slide, textBox, runs, { lineSpacingMultiple: C.lineHeight, name: 'code-text' });
 
-  const needH = (data.lines.length * theme.type.code * C.lineHeight) / 72;
+  const needH = (data.lines.length * theme.type.code * C.lineHeight * theme.measure.lineSpacing) / 72;
   const widest = Math.max(...data.lines.map((l) => (l.length * theme.type.code * theme.measure.codeEm) / 72));
   if (needH > textBox.h) warnings.push(`[${ctx.slideId}] code "${data.title}" needs ${needH.toFixed(2)}" > ${textBox.h.toFixed(2)}"`);
   if (widest > textBox.w) warnings.push(`[${ctx.slideId}] code "${data.title}" line ${widest.toFixed(2)}" wider than ${textBox.w.toFixed(2)}"`);
