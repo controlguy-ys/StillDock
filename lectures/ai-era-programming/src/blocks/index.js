@@ -4,9 +4,9 @@ const basic = require('./basic');
 const cards = require('./cards');
 const flows = require('./flows');
 const compare = require('./compare');
+const diagrams = require('./diagrams');
 
 const registry = Object.freeze({
-  chips: basic.chips,
   presenter: basic.presenter,
   code: basic.code,
   agenda: cards.agenda,
@@ -15,7 +15,6 @@ const registry = Object.freeze({
   cards: cards.cards,
   steps: flows.steps,
   itemList: flows.itemList,
-  timeline: flows.timeline,
   staircase: flows.staircase,
   quoteCard: compare.quoteCard,
   compareFlow: compare.compareFlow,
@@ -23,6 +22,10 @@ const registry = Object.freeze({
   shiftTable: compare.shiftTable,
   statements: compare.statements,
   contact: compare.contact,
+  chain: diagrams.chain,
+  lanes: diagrams.lanes,
+  columns: diagrams.columns,
+  table: diagrams.table,
 });
 
 module.exports = { registry };

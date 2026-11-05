@@ -1,5 +1,5 @@
 'use strict';
-/** Process/sequence blocks: steps, itemList, timeline, staircase. */
+/** Process/sequence blocks: steps, itemList, staircase. */
 
 function stepBoxes(box, n, gap) {
   const w = (box.w - (n - 1) * gap) / n;
@@ -112,43 +112,6 @@ async function itemList(ctx, box, data) {
   }
 }
 
-async function timeline(ctx, box, data) {
-  const { slide, prim, theme } = ctx;
-  const L = theme.blocks.itemList;
-  const M = theme.blocks.timeline;
-  const T = theme.type;
-  let top = box.y;
-  if (data.heading) {
-    prim.text(slide, { x: box.x, y: top, w: box.w, h: L.headingH }, data.heading, {
-      tone: 'muted', fontSize: L.headingSize, bold: true, valign: 'middle', name: 'timeline-heading',
-    });
-    top += L.headingH;
-  }
-  const card = { x: box.x, y: top, w: box.w, h: box.y + box.h - top };
-  prim.card(slide, card, { name: 'timeline-card' });
-  const n = data.items.length;
-  const rowH = (card.h - 2 * M.pad) / n;
-  const lineX = card.x + M.pad + M.whenW + M.dot / 2;
-  prim.rule(slide, { x: lineX, y: card.y + M.pad + rowH / 2, h: rowH * (n - 1), tone: 'muted', transparency: theme.tint.rule, name: 'timeline-axis' });
-  const textX = lineX + M.dot / 2 + M.pad;
-  const textW = card.x + card.w - M.pad - textX;
-  for (const [i, item] of data.items.entries()) {
-    const cy = card.y + M.pad + i * rowH + rowH / 2;
-    prim.text(slide, { x: card.x + M.pad, y: cy - rowH / 2, w: M.whenW - M.pad / 2, h: rowH }, item.when, {
-      tone: 'accent', fontSize: T.small, bold: true, valign: 'middle', name: 'timeline-when',
-    });
-    slide.addShape(ctx.pres.shapes.OVAL, {
-      x: lineX - M.dot / 2, y: cy - M.dot / 2, w: M.dot, h: M.dot,
-      fill: { color: ctx.palette.scheme(i === n - 1 ? 'accent' : 'paper') }, line: { color: ctx.palette.scheme('accent'), width: theme.shape.lineW },
-      objectName: ctx.naming.next('timeline-dot'),
-    });
-    const titleH = ctx.lh(M.titleSize);
-    const descH = ctx.lh(T.small);
-    prim.text(slide, { x: textX, y: cy - (titleH + descH) / 2, w: textW, h: titleH }, item.title, { fontSize: M.titleSize, bold: true, valign: 'middle', name: 'timeline-title' });
-    prim.text(slide, { x: textX, y: cy - (titleH + descH) / 2 + titleH, w: textW, h: descH }, item.desc, { tone: 'ink2', fontSize: T.small, valign: 'middle', name: 'timeline-desc' });
-  }
-}
-
 async function staircase(ctx, box, data) {
   const { slide, prim, theme, palette } = ctx;
   const S = theme.blocks.staircase;
@@ -187,4 +150,4 @@ async function staircase(ctx, box, data) {
   }
 }
 
-module.exports = { steps, itemList, timeline, staircase };
+module.exports = { steps, itemList, staircase };

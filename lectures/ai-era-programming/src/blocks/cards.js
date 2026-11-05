@@ -80,29 +80,66 @@ async function profile(ctx, box, data) {
   }
 }
 
+function splitColumn(box, n, gap) {
+  const h = (box.h - (n - 1) * gap) / n;
+  return Array.from({ length: n }, (_, i) => ({ x: box.x, y: box.y + i * (h + gap), w: box.w, h }));
+}
+
+/** Grid of cells: `columns` per row, as many rows as the items need. */
+function grid(box, count, columns, gapX, gapY) {
+  const rows = Math.ceil(count / columns);
+  const w = (box.w - (columns - 1) * gapX) / columns;
+  const h = (box.h - (rows - 1) * gapY) / rows;
+  return Array.from({ length: count }, (_, i) => ({
+    x: box.x + (i % columns) * (w + gapX), y: box.y + Math.floor(i / columns) * (h + gapY), w, h,
+  }));
+}
+
+/** Big-number tiles. direction "row" (default) or "column" (value left, label right). */
 async function stats(ctx, box, data) {
   const { slide, prim, theme, palette } = ctx;
   const S = theme.blocks.stats;
   const T = theme.type;
-  for (const [i, cell] of splitRow(box, data.items.length, theme.grid.gap).entries()) {
+  const column = data.direction === 'column';
+  let top = box.y;
+  if (data.heading) {
+    prim.text(slide, { x: box.x, y: top, w: box.w, h: S.headingH }, data.heading, { tone: 'muted', fontSize: S.headingSize, bold: true, valign: 'middle', name: 'stat-heading' });
+    top += S.headingH;
+  }
+  const area = { ...box, y: top, h: box.y + box.h - top };
+  const cells = column ? splitColumn(area, data.items.length, theme.shape.listGap) : splitRow(area, data.items.length, theme.grid.gap);
+  for (const [i, cell] of cells.entries()) {
     const item = data.items[i];
     prim.card(slide, cell, { name: 'stat-card' });
-    const inner = { x: cell.x + S.pad, w: cell.w - 2 * S.pad };
-    prim.text(slide, { ...inner, y: cell.y + S.pad, h: S.valueH }, [
-      { text: item.value, options: { fontSize: T.stat, bold: true, color: palette.scheme('accent') } },
-      { text: ` ${item.unit}`, options: { fontSize: S.unitSize, bold: true, color: palette.scheme('ink') } },
-    ], { valign: 'bottom', name: 'stat-value' });
-    const ly = cell.y + S.pad + S.valueH + S.pad / 2;
-    prim.text(slide, { ...inner, y: ly, h: cell.y + cell.h - S.pad - ly }, item.label, { tone: 'ink2', fontSize: T.small, name: 'stat-label' });
+    const valueRuns = [{ text: item.value, options: { fontSize: S.valueSize, bold: true, color: palette.scheme(item.tone || 'accent') } }];
+    if (item.unit) valueRuns.push({ text: ` ${item.unit}`, options: { fontSize: S.unitSize, bold: true, color: palette.scheme('ink') } });
+    if (column) {
+      prim.text(slide, { x: cell.x + S.pad, y: cell.y, w: S.valueW, h: cell.h }, valueRuns, { valign: 'middle', name: 'stat-value' });
+      const lx = cell.x + S.pad + S.valueW;
+      prim.text(slide, { x: lx, y: cell.y, w: cell.x + cell.w - S.pad - lx, h: cell.h }, item.label, { tone: 'ink2', fontSize: T.body, valign: 'middle', name: 'stat-label' });
+    } else {
+      const inner = { x: cell.x + S.pad, w: cell.w - 2 * S.pad };
+      prim.text(slide, { ...inner, y: cell.y + S.pad, h: S.valueH }, valueRuns, { valign: 'bottom', name: 'stat-value' });
+      const ly = cell.y + S.pad + S.valueH + S.pad / 2;
+      prim.text(slide, { ...inner, y: ly, h: cell.y + cell.h - S.pad - ly }, item.label, { tone: 'ink2', fontSize: T.body, name: 'stat-label' });
+    }
   }
 }
 
+/**
+ * Cards in a grid. variant:
+ *   "full"    tag + icon, title, description, optional role/foot footer (default)
+ *   "compact" icon, title, description stacked
+ *   "row"     icon on the left, title + description on the right
+ */
 async function cards(ctx, box, data) {
-  const { slide, prim, theme, palette } = ctx;
+  const { slide, prim, theme } = ctx;
   const K = theme.blocks.cards;
   const T = theme.type;
+  const variant = data.variant || 'full';
+  const columns = data.columns || data.items.length;
   const gap = data.arrows ? K.arrowGap : theme.grid.gap;
-  const cells = splitRow(box, data.columns || data.items.length, gap);
+  const cells = grid(box, data.items.length, columns, gap, theme.grid.gap);
   const emphasized = new Set(data.emphasize || []);
   // Same description height on every card so footers line up across the row.
   const descLines = Math.max(...data.items.map((it) => ctx.measure.lineCount(it.desc, K.descSize, cells[0].w - 2 * K.pad)));
@@ -114,14 +151,24 @@ async function cards(ctx, box, data) {
     prim.card(slide, c, { tone: dark ? 'ink' : 'paper', name: 'card' });
     const inner = { x: c.x + K.pad, w: c.w - 2 * K.pad };
 
-    if (data.compact) {
+    if (variant === 'compact') {
       const d = K.compactIcon;
       let y = c.y + K.pad;
       await prim.iconCircle(slide, { x: inner.x, y, d, icon: item.icon, tone: 'accent', alt: item.title });
       y += d + K.pad / 2;
       prim.text(slide, { ...inner, y, h: ctx.lh(K.compactTitleSize) }, item.title, { tone: tones.text, fontSize: K.compactTitleSize, bold: true, name: 'card-title' });
       y += ctx.lh(K.compactTitleSize);
-      prim.text(slide, { ...inner, y, h: c.y + c.h - K.pad - y }, item.desc, { tone: tones.sub, fontSize: T.small, name: 'card-desc' });
+      prim.text(slide, { ...inner, y, h: c.y + c.h - K.pad - y }, item.desc, { tone: tones.sub, fontSize: T.body, name: 'card-desc' });
+    } else if (variant === 'row') {
+      const d = K.rowIcon;
+      await prim.iconCircle(slide, { x: inner.x, y: c.y + (c.h - d) / 2, d, icon: item.icon, tone: 'accent', alt: item.title });
+      const tx = inner.x + d + K.pad;
+      const tw = c.x + c.w - K.pad - tx;
+      const titleH = ctx.lh(K.titleSize);
+      const descH = ctx.lh(K.descSize, ctx.measure.lineCount(item.desc, K.descSize, tw));
+      const ty = c.y + (c.h - titleH - descH) / 2;
+      prim.text(slide, { x: tx, y: ty, w: tw, h: titleH }, item.title, { fontSize: K.titleSize, bold: true, name: 'card-title' });
+      prim.text(slide, { x: tx, y: ty + titleH, w: tw, h: descH }, item.desc, { tone: 'ink2', fontSize: K.descSize, name: 'card-desc' });
     } else {
       let y = c.y + K.pad;
       if (item.tag) {
@@ -136,28 +183,29 @@ async function cards(ctx, box, data) {
       prim.text(slide, { ...inner, y, h: descH }, item.desc, { tone: tones.sub, fontSize: K.descSize, name: 'card-desc' });
       y += descH;
 
-
       // Bottom-anchored footer: rule, role label + text, example line.
       const footH = ctx.lh(T.caption);
       const roleH = ctx.lh(T.body);
       const labelH = ctx.lh(T.caption);
-      let by = c.y + c.h - K.pad - footH;
+      let by = c.y + c.h - K.pad - (item.foot ? footH : 0);
       if (item.foot) prim.text(slide, { ...inner, y: by, h: footH }, item.foot, { tone: tones.muted, fontSize: T.caption, name: 'card-foot' });
       if (item.role) {
-        by -= roleH + K.pad / 2;
+        by -= roleH + (item.foot ? K.pad / 2 : 0);
         prim.text(slide, { ...inner, y: by, h: roleH }, item.role, { tone: tones.text, fontSize: T.body, bold: true, name: 'card-role' });
         by -= labelH;
         prim.text(slide, { ...inner, y: by, h: labelH }, data.roleLabel, { tone: dark ? 'highlight' : 'accent', fontSize: T.caption, bold: true, name: 'card-role-label' });
       }
-      prim.rule(slide, { x: inner.x, y: by - K.pad / 2, w: inner.w, tone: dark ? 'paper2' : 'muted', width: theme.shape.hairline, transparency: theme.tint.rule, name: 'card-rule' });
-      if (by - K.pad / 2 < y) ctx.warnings.push(`[${ctx.slideId}] card "${item.title}" footer overlaps body`);
+      if (item.role || item.foot) {
+        prim.rule(slide, { x: inner.x, y: by - K.pad / 2, w: inner.w, tone: dark ? 'paper2' : 'muted', width: theme.shape.hairline, transparency: theme.tint.rule, name: 'card-rule' });
+        if (by - K.pad / 2 < y) ctx.warnings.push(`[${ctx.slideId}] card "${item.title}" footer overlaps body`);
+      }
     }
 
-    if (data.arrows && i < data.items.length - 1) {
+    if (data.arrows && i % columns < columns - 1 && i < data.items.length - 1) {
       const aw = gap * theme.shape.arrowFrac;
       prim.arrow(slide, { x: c.x + c.w + (gap - aw) / 2, y: c.y + c.h / 2, w: aw, tone: 'accent', name: 'card-arrow' });
     }
   }
 }
 
-module.exports = { agenda, profile, stats, cards, splitRow };
+module.exports = { agenda, profile, stats, cards, splitRow, splitColumn, grid };

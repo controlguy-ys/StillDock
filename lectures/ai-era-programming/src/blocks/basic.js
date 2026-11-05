@@ -1,23 +1,5 @@
 'use strict';
-/** Small inline blocks: chips row, presenter line, code window. */
-
-async function chips(ctx, box, data) {
-  const { slide, prim, theme } = ctx;
-  const fontSize = data.fontSize || theme.type.small;
-  const h = theme.shape.chipH;
-  const gap = theme.blocks.chips.gap;
-  let x = box.x;
-  let y = box.y;
-  for (const label of data.items) {
-    const w = prim.pillWidth(label, fontSize);
-    if (x > box.x && x + w > box.x + box.w) {
-      x = box.x;
-      y += h + gap;
-    }
-    prim.pill(slide, { x, y, label, fontSize, tone: data.tone || 'accent', outline: data.style === 'outline', name: 'chip' });
-    x += w + gap;
-  }
-}
+/** Small inline blocks: presenter line, code window. */
 
 async function presenter(ctx, box, data) {
   const { slide, prim, theme } = ctx;
@@ -93,4 +75,4 @@ async function code(ctx, box, data) {
   if (widest > textBox.w) warnings.push(`[${ctx.slideId}] code "${data.title}" line ${widest.toFixed(2)}" wider than ${textBox.w.toFixed(2)}"`);
 }
 
-module.exports = { chips, presenter, code };
+module.exports = { presenter, code };

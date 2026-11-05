@@ -63,14 +63,14 @@
       "indent": 0.24
     },
     "title": {
-      "y": 0.74,
-      "h": 0.68
+      "y": 0.72,
+      "h": 0.78
     },
     "lead": {
-      "y": 1.42,
+      "y": 1.52,
       "h": 0.42
     },
-    "contentTop": 2.08,
+    "contentTop": 2.18,
     "contentBottomNoBand": 6.72,
     "band": {
       "h": 0.62,
@@ -81,7 +81,7 @@
       "y": 7.02,
       "h": 0.28
     },
-    "contentTopNoLead": 1.65
+    "contentTopNoLead": 1.75
   },
   "dark": {
     "kicker": {
@@ -101,7 +101,7 @@
   },
   "type": {
     "kicker": 12,
-    "title": 32,
+    "title": 36,
     "darkTitle": 48,
     "lead": 16,
     "darkLead": 20,
@@ -267,7 +267,11 @@
     "stats": {
       "pad": 0.24,
       "valueH": 0.7,
-      "unitSize": 16
+      "unitSize": 16,
+      "valueSize": 40,
+      "valueW": 1.9,
+      "headingH": 0.42,
+      "headingSize": 14
     },
     "cards": {
       "arrowGap": 0.62,
@@ -276,7 +280,8 @@
       "titleSize": 24,
       "compactTitleSize": 15,
       "tagH": 0.32,
-      "descSize": 16
+      "descSize": 16,
+      "rowIcon": 0.72
     },
     "steps": {
       "arrowGap": 0.55,
@@ -296,12 +301,6 @@
       "loopW": 0.75,
       "loopInset": 0.28,
       "inlineTitleW": 1.45,
-      "titleSize": 16
-    },
-    "timeline": {
-      "whenW": 1.0,
-      "dot": 0.16,
-      "pad": 0.3,
       "titleSize": 16
     },
     "quoteCard": {
@@ -331,9 +330,9 @@
       "pad": 0.09,
       "maxTransparency": 85,
       "minTransparency": 20,
-      "levelSize": 12,
-      "titleSize": 13,
-      "descSize": 11,
+      "levelSize": 13,
+      "titleSize": 15,
+      "descSize": 14,
       "textTone": "ink"
     },
     "shiftTable": {
@@ -356,6 +355,37 @@
       "nameSize": 16,
       "lineSize": 14,
       "taglineSize": 12
+    },
+    "chain": {
+      "pad": 0.3,
+      "node": 1.0,
+      "itemGap": 0.22,
+      "titleSize": 18,
+      "subSize": 14,
+      "arrowPad": 0.18,
+      "spanGap": 0.35
+    },
+    "lanes": {
+      "pad": 0.32,
+      "labelW": 2.4,
+      "labelSize": 18,
+      "dot": 0.2,
+      "whenSize": 14,
+      "titleSize": 15,
+      "labelGap": 0.1,
+      "itemPad": 0.08
+    },
+    "columns": {
+      "pad": 0.3,
+      "titleSize": 22,
+      "bulletSize": 17,
+      "bulletSpace": 16
+    },
+    "table": {
+      "headerH": 0.5,
+      "headerSize": 14,
+      "fontSize": 15,
+      "padX": 0.18
     }
   }
 }
