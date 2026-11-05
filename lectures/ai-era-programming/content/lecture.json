@@ -1,0 +1,1055 @@
+{
+  "meta": {
+    "title": "AI 시대의 프로그래밍",
+    "subject": "20분 샘플 강의 — 프로그래밍의 본질과 AI 시대의 역할 변화",
+    "author": "장윤수 (Yunsoo Jang)",
+    "footer": "AI 시대의 프로그래밍 · 장윤수",
+    "totalMinutes": 20,
+    "notesTimingLabel": "타이밍",
+    "durationUnits": {
+      "min": "분",
+      "sec": "초"
+    }
+  },
+  "sections": [
+    {
+      "id": "intro",
+      "title": "Intro"
+    },
+    {
+      "id": "speaker",
+      "title": "강사 소개"
+    },
+    {
+      "id": "what",
+      "title": "프로그래밍이란 무엇인가"
+    },
+    {
+      "id": "before",
+      "title": "예전의 프로그래밍"
+    },
+    {
+      "id": "now",
+      "title": "지금의 프로그래밍"
+    },
+    {
+      "id": "todo",
+      "title": "지금 해야 할 것"
+    },
+    {
+      "id": "next",
+      "title": "앞으로 해야 할 것"
+    },
+    {
+      "id": "role",
+      "title": "AI 시대에 변하는 역할"
+    },
+    {
+      "id": "close",
+      "title": "Closing"
+    }
+  ],
+  "slides": [
+    {
+      "id": "cover",
+      "section": "intro",
+      "layout": "DARK",
+      "minutes": 0.5,
+      "kicker": "SAMPLE LECTURE · 20 MIN",
+      "title": "AI 시대의 프로그래밍",
+      "lead": "코드를 쓰는 사람에서,\nAI가 일하는 환경을 설계하는 사람으로",
+      "blocks": [
+        {
+          "type": "chips",
+          "region": {
+            "cols": [
+              0,
+              7
+            ],
+            "y": 3.95,
+            "h": 0.4
+          },
+          "tone": "accent",
+          "style": "outline",
+          "items": [
+            "프로그래밍의 본질",
+            "예전과 지금",
+            "지금 · 앞으로 해야 할 것",
+            "변하는 역할"
+          ]
+        },
+        {
+          "type": "presenter",
+          "region": {
+            "cols": [
+              0,
+              7
+            ],
+            "y": 5.2,
+            "h": 0.9
+          },
+          "name": "장윤수",
+          "nameEn": "Yunsoo Jang",
+          "role": "ECELL Senior Software Developer · 산업자동화 · AI 엔지니어링"
+        },
+        {
+          "type": "code",
+          "region": {
+            "cols": [
+              7,
+              5
+            ],
+            "y": 1.25,
+            "h": 3.0
+          },
+          "title": "lecture.js",
+          "lang": "js",
+          "lines": [
+            "// programming in the AI era",
+            "while (building) {",
+            "  define(problem);     // human",
+            "  write(spec);         // human",
+            "  delegate(code, ai);  // agent",
+            "  verify(build, test); // harness",
+            "  approve(change);     // human",
+            "}"
+          ]
+        }
+      ],
+      "notes": "안녕하세요. 오늘 20분 동안 'AI 시대의 프로그래밍'이라는 주제로 이야기하겠습니다. 오른쪽 코드가 오늘 강의의 요약입니다. 문제를 정의하고 Spec을 쓰는 것은 사람, 코드는 AI 에이전트, 검증은 하네스, 마지막 승인은 다시 사람입니다. 이 루프가 왜 이렇게 생겼는지 하나씩 풀어 보겠습니다."
+    },
+    {
+      "id": "agenda",
+      "section": "intro",
+      "layout": "CONTENT",
+      "minutes": 1,
+      "kicker": "INTRO",
+      "title": "오늘 20분, 세 가지 질문",
+      "lead": "AI가 코드를 써 주는 시대에도, 프로그래밍을 배워야 할까요?",
+      "blocks": [
+        {
+          "type": "agenda",
+          "region": {
+            "cols": [
+              0,
+              12
+            ]
+          },
+          "label": "Q",
+          "items": [
+            {
+              "question": "프로그래밍이란 무엇인가?",
+              "desc": "코드 이전에 있는 '생각의 구조'",
+              "sections": [
+                "what"
+              ],
+              "icon": "LuBrain"
+            },
+            {
+              "question": "무엇이 바뀌었나?",
+              "desc": "사람이 쓰던 코드에서 AI가 쓰는 코드로",
+              "sections": [
+                "before",
+                "now"
+              ],
+              "icon": "LuHistory"
+            },
+            {
+              "question": "우리는 무엇을 해야 하나?",
+              "desc": "지금 · 앞으로 해야 할 것, 그리고 역할",
+              "sections": [
+                "todo",
+                "next",
+                "role"
+              ],
+              "icon": "LuTarget"
+            }
+          ]
+        }
+      ],
+      "band": "결론부터: 프로그래밍의 **본질은 그대로**이고, 바뀌는 것은 **누가 쓰고 어떻게 검증하느냐**입니다.",
+      "notes": "요즘 가장 많이 받는 질문이 'AI가 코드를 다 짜 주는데 프로그래밍을 계속 배워야 하나요?'입니다. 오늘은 이 질문을 세 개로 나눠 답하겠습니다. 결론부터 말씀드리면, 프로그래밍의 본질은 그대로이고, 바뀌는 것은 누가 코드를 쓰고 어떻게 검증하느냐입니다."
+    },
+    {
+      "id": "speaker",
+      "section": "speaker",
+      "layout": "CONTENT",
+      "minutes": 1.5,
+      "kicker": "SPEAKER",
+      "title": "산업자동화 현장에서 AI 엔지니어링까지",
+      "lead": "설비 현장에서 배운 '안전하게 일하는 방식'을 AI 개발로 옮기고 있습니다",
+      "blocks": [
+        {
+          "type": "profile",
+          "region": {
+            "cols": [
+              0,
+              5
+            ]
+          },
+          "initials": "YJ",
+          "name": "장윤수",
+          "nameEn": "Yunsoo Jang",
+          "lines": [
+            {
+              "label": "현재",
+              "text": "ECELL · Senior Software Developer"
+            },
+            {
+              "label": "이전",
+              "text": "ABB Machine Automation (2021–2025)"
+            },
+            {
+              "label": "학력",
+              "text": "충남대학교 항공우주공학과"
+            }
+          ],
+          "chips": [
+            "PLC · HMI · OPC UA",
+            "ST · C/C++ · C#",
+            "Python · TypeScript",
+            "MCP · Agent Harness"
+          ]
+        },
+        {
+          "type": "stats",
+          "region": {
+            "cols": [
+              5,
+              7
+            ],
+            "rows": [
+              0,
+              1,
+              2
+            ]
+          },
+          "items": [
+            {
+              "value": "5",
+              "unit": "개 산업",
+              "label": "반도체 · 배터리 · 바이오 · 로봇 · 식품"
+            },
+            {
+              "value": "5",
+              "unit": "일",
+              "label": "제조업 SI 대상 Agent 구축 기업교육"
+            },
+            {
+              "value": "3",
+              "unit": "개",
+              "label": "직접 구축한 Agent · MCP 프로젝트"
+            }
+          ]
+        },
+        {
+          "type": "cards",
+          "region": {
+            "cols": [
+              5,
+              7
+            ],
+            "rows": [
+              1,
+              1,
+              2
+            ]
+          },
+          "columns": 3,
+          "compact": true,
+          "items": [
+            {
+              "icon": "LuCpu",
+              "title": "ASX Core",
+              "desc": "IDE 없이 PLC 프로젝트를 읽고 · 검사 · 빌드"
+            },
+            {
+              "icon": "LuWorkflow",
+              "title": "Agent Harness",
+              "desc": "검색 → 패치 → 정적 검사 → 빌드 → 수정"
+            },
+            {
+              "icon": "LuPlug",
+              "title": "PLC MCP 서버",
+              "desc": "빌드 · 변수 · 로그 · 트렌드를 AI 도구로"
+            }
+          ]
+        }
+      ],
+      "notes": "저는 산업자동화 소프트웨어 개발자입니다. ABB에서 반도체, 배터리, 바이오, 로봇, 식품 현장의 설비 제어를 했고, 지금은 이셀에서 세포배양장비 제어 소프트웨어와 LLM 기반 엔지니어링 자동화를 만들고 있습니다. PLC 프로젝트를 AI가 읽고 빌드할 수 있게 하는 도구와 MCP 서버를 직접 만들었고, 제조업 SI 기업 대상으로 5일간 Agent 구축 교육도 진행했습니다. 설비 현장은 틀리면 기계가 서는 곳이라, 'AI를 어떻게 안전하게 쓰는가'를 계속 고민해 왔습니다."
+    },
+    {
+      "id": "what-is",
+      "section": "what",
+      "layout": "CONTENT",
+      "minutes": 1.5,
+      "kicker": "01 · WHAT IS PROGRAMMING",
+      "title": "프로그래밍이란 무엇인가",
+      "lead": "원하는 결과를, 기계가 실행할 수 있는 절차로 바꾸는 일",
+      "blocks": [
+        {
+          "type": "steps",
+          "region": {
+            "cols": [
+              0,
+              12
+            ]
+          },
+          "numbered": true,
+          "highlight": [
+            2
+          ],
+          "highlightTone": "muted",
+          "items": [
+            {
+              "icon": "LuTarget",
+              "title": "문제 정의",
+              "desc": "무엇을, 왜 원하는가"
+            },
+            {
+              "icon": "LuListTree",
+              "title": "분해",
+              "desc": "작은 단계와 조건으로 나누기"
+            },
+            {
+              "icon": "LuCode",
+              "title": "표현",
+              "desc": "언어로 쓰기 = 코드"
+            },
+            {
+              "icon": "LuCircleCheck",
+              "title": "검증",
+              "desc": "의도대로 동작하는지 확인"
+            }
+          ],
+          "brackets": [
+            {
+              "from": 0,
+              "to": 1,
+              "label": "사람이 정해야 하는 것",
+              "tone": "accent"
+            },
+            {
+              "from": 2,
+              "to": 2,
+              "label": "AI가 가장 빨라진 것",
+              "tone": "muted"
+            },
+            {
+              "from": 3,
+              "to": 3,
+              "label": "사람이 책임지는 것",
+              "tone": "accent"
+            }
+          ]
+        }
+      ],
+      "band": "코드는 프로그래밍의 **결과물**이지, 프로그래밍 그 자체가 아닙니다.",
+      "notes": "프로그래밍을 한 문장으로 정의하면, 원하는 결과를 기계가 실행할 수 있는 절차로 바꾸는 일입니다. 네 단계로 나눠 보면 문제 정의, 분해, 표현, 검증입니다. 많은 분들이 프로그래밍을 세 번째 단계, 즉 코드를 쓰는 것으로만 생각합니다. 그런데 AI가 가장 빨라진 곳이 바로 이 단계입니다. 앞의 두 단계와 마지막 검증은 여전히 사람이 정하고 책임져야 합니다."
+    },
+    {
+      "id": "example",
+      "section": "what",
+      "layout": "CONTENT",
+      "minutes": 1.5,
+      "kicker": "01 · EXAMPLE",
+      "title": "한 줄 요구사항 뒤에 숨은 조건들",
+      "lead": "“시작 버튼을 누르면 펌프가 돌게 해 주세요”",
+      "blocks": [
+        {
+          "type": "itemList",
+          "region": {
+            "cols": [
+              0,
+              6
+            ]
+          },
+          "marker": "icon",
+          "tone": "accent",
+          "items": [
+            {
+              "icon": "LuOctagonX",
+              "title": "비상정지가 눌려 있다면?",
+              "desc": "어떤 경우에도 정지가 우선 — 인터락"
+            },
+            {
+              "icon": "LuDroplets",
+              "title": "탱크 수위가 낮다면?",
+              "desc": "공운전으로 펌프가 손상될 수 있음"
+            },
+            {
+              "icon": "LuZap",
+              "title": "모터가 과부하라면?",
+              "desc": "정지하고 알람으로 작업자에게 알리기"
+            },
+            {
+              "icon": "LuMonitor",
+              "title": "작업자는 상태를 어떻게 알까?",
+              "desc": "HMI 화면에 운전 상태 표시"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "region": {
+            "cols": [
+              6,
+              6
+            ]
+          },
+          "title": "PumpCtrl.st",
+          "lang": "st",
+          "lines": [
+            "(* start only when it is safe *)",
+            "IF StartButton AND NOT EStop",
+            "   AND TankLevel > MinLevel",
+            "   AND NOT MotorOverload THEN",
+            "    PumpRun := TRUE;",
+            "END_IF;",
+            "",
+            "IF EStop OR MotorOverload THEN",
+            "    PumpRun     := FALSE;",
+            "    AlarmActive := TRUE;",
+            "END_IF;",
+            "",
+            "HMI.PumpState := PumpRun;"
+          ]
+        }
+      ],
+      "band": "어려운 건 타이핑이 아니라 **빠진 조건을 찾아내는 것** — 이것이 프로그래밍입니다.",
+      "notes": "예를 들어 보겠습니다. 현장에서 '시작 버튼을 누르면 펌프가 돌게 해 주세요'라는 요청을 받았습니다. 한 줄짜리 요구사항이지만 비상정지, 탱크 수위, 모터 과부하, HMI 표시 같은 숨은 조건이 따라옵니다. 오른쪽 코드는 그 조건을 정리한 결과입니다. 코드는 열 줄 남짓이지만, 어려운 부분은 빠진 조건을 찾아내는 일이었습니다. 이것이 프로그래밍의 진짜 일입니다."
+    },
+    {
+      "id": "before",
+      "section": "before",
+      "layout": "CONTENT",
+      "minutes": 1.5,
+      "kicker": "02 · BEFORE",
+      "title": "예전의 프로그래밍: 모든 줄을 사람이 썼다",
+      "lead": "도구는 계속 좋아졌지만, 생각하고 · 쓰고 · 확인하는 일은 모두 사람의 몫이었습니다",
+      "blocks": [
+        {
+          "type": "timeline",
+          "region": {
+            "cols": [
+              0,
+              6
+            ]
+          },
+          "heading": "도구의 발전",
+          "items": [
+            {
+              "when": "1950s~",
+              "title": "기계어 · 어셈블리",
+              "desc": "기계의 언어를 사람이 직접 쓰던 시기"
+            },
+            {
+              "when": "1970s~",
+              "title": "C · 고급 언어",
+              "desc": "사람에게 가까운 언어로 추상화"
+            },
+            {
+              "when": "1990s~",
+              "title": "IDE · 표준 · 라이브러리",
+              "desc": "IEC 61131-3 (Ladder · ST) · PLCopen"
+            },
+            {
+              "when": "2000s~",
+              "title": "검색 · 커뮤니티",
+              "desc": "매뉴얼 · 포럼 · Stack Overflow"
+            }
+          ]
+        },
+        {
+          "type": "itemList",
+          "region": {
+            "cols": [
+              6,
+              6
+            ]
+          },
+          "heading": "개발자의 하루 — 반복 루프",
+          "marker": "number",
+          "tone": "ink",
+          "dense": true,
+          "loopLabel": "될 때까지 반복",
+          "items": [
+            {
+              "title": "매뉴얼 · 사양서 읽기"
+            },
+            {
+              "title": "코드 작성"
+            },
+            {
+              "title": "빌드"
+            },
+            {
+              "title": "에러 로그 해석"
+            },
+            {
+              "title": "디버깅 · 재수정"
+            }
+          ]
+        }
+      ],
+      "band": "병목은 언제나 **사람의 기억 · 타이핑 · 검색 속도**였습니다.",
+      "notes": "예전의 프로그래밍을 돌아보겠습니다. 기계어에서 고급 언어로, IDE와 표준 라이브러리로, 그리고 검색과 커뮤니티로 도구는 계속 좋아졌습니다. 산업자동화에서도 Ladder에서 IEC 61131-3 Structured Text로 발전했습니다. 하지만 개발자의 하루는 거의 같았습니다. 매뉴얼을 읽고, 코드를 쓰고, 빌드하고, 에러 로그를 해석하고, 고치는 루프를 사람이 직접 반복했습니다."
+    },
+    {
+      "id": "now",
+      "section": "now",
+      "layout": "CONTENT",
+      "minutes": 1.5,
+      "kicker": "03 · NOW",
+      "title": "지금의 프로그래밍: AI가 코드를 쓴다",
+      "lead": "자동완성에서 에이전트까지, 불과 몇 년 사이의 변화",
+      "blocks": [
+        {
+          "type": "cards",
+          "region": {
+            "cols": [
+              0,
+              12
+            ]
+          },
+          "columns": 3,
+          "arrows": true,
+          "emphasize": [
+            2
+          ],
+          "roleLabel": "사람의 역할",
+          "items": [
+            {
+              "tag": "2021~",
+              "icon": "LuTextCursorInput",
+              "title": "자동완성",
+              "desc": "다음 줄을 제안한다",
+              "role": "받아들이거나 거절하기",
+              "foot": "예: GitHub Copilot",
+              "level": 1
+            },
+            {
+              "tag": "2022~",
+              "icon": "LuMessagesSquare",
+              "title": "대화형 AI",
+              "desc": "질문하면 코드로 답한다",
+              "role": "묻고, 복사해서 붙여넣기",
+              "foot": "예: ChatGPT · Claude",
+              "level": 2
+            },
+            {
+              "tag": "2025~",
+              "icon": "LuBot",
+              "title": "코딩 에이전트",
+              "desc": "파일을 읽고 · 고치고 · 빌드까지 실행한다",
+              "role": "맡기고, 검증하기",
+              "foot": "예: Codex · Claude Code + MCP",
+              "level": 3
+            }
+          ],
+          "meter": {
+            "label": "AI가 스스로 하는 일",
+            "max": 3
+          }
+        }
+      ],
+      "band": "코드를 **쓰는 비용**은 급격히 낮아졌습니다. 그렇다면 무엇이 비싸졌을까요?",
+      "notes": "지금은 이 루프의 상당 부분을 AI가 맡습니다. 2021년 즈음 자동완성이 다음 줄을 제안했고, 2022년부터는 대화형 AI에게 물어보면 코드로 답해 줬습니다. 2025년부터는 코딩 에이전트가 파일을 직접 읽고 고치고 빌드까지 실행합니다. 사람의 역할도 '받아들이기'에서 '맡기고 검증하기'로 바뀌고 있습니다. 코드를 쓰는 비용은 크게 낮아졌습니다. 그렇다면 무엇이 비싸졌을까요?"
+    },
+    {
+      "id": "now-risk",
+      "section": "now",
+      "layout": "CONTENT",
+      "minutes": 1.5,
+      "kicker": "03 · NOW — RISK",
+      "title": "문제는 AI가 '너무 쉽게' 일한다는 것",
+      "lead": "AI가 일을 못해서가 아니라, 어디까지 믿을지 정하지 않았기 때문입니다",
+      "blocks": [
+        {
+          "type": "quoteCard",
+          "region": {
+            "cols": [
+              0,
+              5
+            ]
+          },
+          "tone": "risk",
+          "label": "Vibe Coding",
+          "quote": "“이 코드 수정해 줘”",
+          "flow": [
+            "Prompt",
+            "Code",
+            "Debug",
+            "Hope"
+          ],
+          "bullets": [
+            "검증 근거 없음",
+            "승인 절차 없음",
+            "영향 범위 미상"
+          ]
+        },
+        {
+          "type": "itemList",
+          "region": {
+            "cols": [
+              5,
+              7
+            ]
+          },
+          "marker": "number",
+          "tone": "risk",
+          "items": [
+            {
+              "title": "없는 근거도 그럴듯하게 만든다",
+              "desc": "존재하지 않는 변수 · 함수 · 라이브러리"
+            },
+            {
+              "title": "겉만 고치고 실제 규칙은 놓친다",
+              "desc": "현장 코드 스타일 · 화면 맥락 누락"
+            },
+            {
+              "title": "검증 없이 '완료'라고 말한다",
+              "desc": "빌드도 안 된 코드가 완료로 보고됨"
+            },
+            {
+              "title": "건드리면 안 되는 영역을 건드린다",
+              "desc": "인터락 · 알람 · 안전 로직"
+            }
+          ]
+        }
+      ],
+      "band": "일반 소프트웨어는 틀리면 고치면 됩니다. **산업자동화는 틀리면 설비가 섭니다.**",
+      "notes": "제가 에이전트를 써 보며 느낀 진짜 문제는 AI가 일을 못한다는 게 아니었습니다. 오히려 너무 쉽게 처리합니다. '이 코드 수정해 줘' 한 마디에 그럴듯한 결과가 나오지만, 근거도, 승인도, 영향 범위도 확인되지 않습니다. 없는 변수를 만들거나, 빌드도 안 된 코드를 완료라고 하거나, 인터락처럼 건드리면 안 되는 영역을 건드릴 수 있습니다. 일반 소프트웨어는 고치면 되지만, 산업자동화에서는 설비가 섭니다."
+    },
+    {
+      "id": "todo-spec",
+      "section": "todo",
+      "layout": "CONTENT",
+      "minutes": 1.5,
+      "kicker": "04 · WHAT TO DO NOW",
+      "title": "지금 해야 할 것 ① 코드보다 Spec 먼저",
+      "lead": "AI에게 코드를 시키기 전에, 요구사항 · 설계 · 완료 기준을 먼저 고정합니다",
+      "blocks": [
+        {
+          "type": "compareFlow",
+          "region": {
+            "cols": [
+              0,
+              8
+            ]
+          },
+          "rows": [
+            {
+              "label": "기존 방식",
+              "tone": "muted",
+              "flow": [
+                "요구사항 대충 설명",
+                "AI에게 코드 요청",
+                "결과 확인",
+                "오류 수정 반복"
+              ]
+            },
+            {
+              "label": "Spec-Driven Development",
+              "tone": "good",
+              "flow": [
+                "Requirements",
+                "Design",
+                "Tasks",
+                "Acceptance",
+                "Evidence"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "region": {
+            "cols": [
+              8,
+              4
+            ]
+          },
+          "title": "spec/",
+          "lang": "tree",
+          "lines": [
+            "spec/",
+            "├─ requirements.md  # why",
+            "├─ design.md        # how",
+            "├─ tasks.md         # steps",
+            "├─ acceptance.md    # done?",
+            "└─ evidence.md      # proof"
+          ]
+        }
+      ],
+      "band": "Spec은 문서가 아니라 **AI의 작업 경계이자 검증 기준**입니다.",
+      "notes": "그래서 지금 해야 할 첫 번째는 코드보다 Spec을 먼저 쓰는 것입니다. 기존에는 요구사항을 대충 설명하고 결과를 보며 수정을 반복했습니다. Spec-Driven Development에서는 요구사항, 설계, 작업, 완료 기준, 근거를 먼저 파일로 고정합니다. GitHub Spec Kit이나 Kiro 같은 도구도 같은 방향입니다. Spec은 AI가 넘으면 안 되는 작업 경계이자, 결과를 판단하는 검증 기준이 됩니다."
+    },
+    {
+      "id": "todo-harness",
+      "section": "todo",
+      "layout": "CONTENT",
+      "minutes": 1.5,
+      "kicker": "04 · WHAT TO DO NOW",
+      "title": "지금 해야 할 것 ② 규칙과 검증을 환경으로",
+      "lead": "프롬프트를 잘 쓰는 것보다, AI가 일하는 환경(Harness)을 만드는 것이 중요합니다",
+      "blocks": [
+        {
+          "type": "code",
+          "region": {
+            "cols": [
+              0,
+              5
+            ]
+          },
+          "title": "AGENTS.md",
+          "lang": "md",
+          "lines": [
+            "# AI Working Rules",
+            "",
+            "- Read the source before any change.",
+            "- Cite file, line and log as evidence.",
+            "- No \"done\" before the build passes.",
+            "- Never edit safety-related code.",
+            "- Risky action = human approval."
+          ]
+        },
+        {
+          "type": "itemList",
+          "region": {
+            "cols": [
+              5,
+              7
+            ]
+          },
+          "marker": "icon",
+          "tone": "good",
+          "inline": true,
+          "items": [
+            {
+              "icon": "LuBookOpen",
+              "title": "Context",
+              "desc": "실제 자료를 먼저 읽게 한다"
+            },
+            {
+              "icon": "LuFence",
+              "title": "Scope",
+              "desc": "바꿔도 되는 범위를 제한한다"
+            },
+            {
+              "icon": "LuShieldAlert",
+              "title": "Safety",
+              "desc": "위험 작업은 직접 실행하지 않는다"
+            },
+            {
+              "icon": "LuListChecks",
+              "title": "Verify",
+              "desc": "테스트와 체크리스트로 확인한다"
+            },
+            {
+              "icon": "LuHistory",
+              "title": "Memory",
+              "desc": "반복 패턴과 실패를 기록한다"
+            }
+          ]
+        }
+      ],
+      "band": "프롬프트는 좋은 답을 요구하고, **하네스는 좋은 방식으로 일하게** 만듭니다.",
+      "notes": "두 번째는 규칙과 검증을 환경으로 만드는 것입니다. 저는 이것을 하네스라고 부릅니다. 왼쪽 AGENTS.md처럼 AI가 작업 전에 반드시 읽는 규칙 파일을 둡니다. 그리고 다섯 가지 가드레일, Context, Scope, Safety, Verify, Memory를 환경에 심습니다. 프롬프트는 매번 좋은 답을 요구하지만, 하네스는 매번 좋은 방식으로 일하게 만듭니다."
+    },
+    {
+      "id": "todo-verify",
+      "section": "todo",
+      "layout": "CONTENT",
+      "minutes": 1.5,
+      "kicker": "04 · WHAT TO DO NOW",
+      "title": "지금 해야 할 것 ③ '완료'의 기준을 바꾼다",
+      "lead": "생산성이 가장 크게 오른 곳은 코드 작성이 아니라 검증 자동화였습니다",
+      "blocks": [
+        {
+          "type": "steps",
+          "region": {
+            "cols": [
+              0,
+              12
+            ],
+            "rows": [
+              0,
+              3,
+              5
+            ]
+          },
+          "numbered": false,
+          "items": [
+            {
+              "icon": "LuHammer",
+              "title": "Build",
+              "desc": "빌드 실행"
+            },
+            {
+              "icon": "LuFileWarning",
+              "title": "Error Log",
+              "desc": "실패 원인 읽기"
+            },
+            {
+              "icon": "LuWrench",
+              "title": "Repair",
+              "desc": "수정안 만들기"
+            },
+            {
+              "icon": "LuRefreshCw",
+              "title": "Verify",
+              "desc": "재빌드 · 근거 확인"
+            },
+            {
+              "icon": "LuUserCheck",
+              "title": "Approve",
+              "desc": "사람이 최종 승인"
+            }
+          ],
+          "highlight": [
+            4
+          ],
+          "highlightTone": "accent",
+          "brackets": [
+            {
+              "from": 0,
+              "to": 3,
+              "label": "반복 검증 = AI가 먼저",
+              "tone": "good"
+            },
+            {
+              "from": 4,
+              "to": 4,
+              "label": "판단 · 실행 = 사람",
+              "tone": "accent"
+            }
+          ]
+        },
+        {
+          "type": "compareStatements",
+          "region": {
+            "cols": [
+              0,
+              12
+            ],
+            "rows": [
+              3,
+              2,
+              5
+            ]
+          },
+          "items": [
+            {
+              "label": "BEFORE — 완료란?",
+              "text": "“AI가 답변했다”",
+              "tone": "risk",
+              "strike": true
+            },
+            {
+              "label": "AFTER — 완료란?",
+              "text": "“빌드가 통과했고, 근거가 남았다”",
+              "tone": "good"
+            }
+          ]
+        }
+      ],
+      "notes": "세 번째는 완료의 기준을 바꾸는 것입니다. 실제로 생산성이 가장 크게 오른 곳은 코드 작성이 아니라 검증 자동화였습니다. 빌드하고, 에러 로그를 읽고, 수정하고, 다시 확인하는 반복 검증은 AI가 먼저 돕니다. 최종 판단과 실행은 사람이 승인합니다. 완료는 'AI가 답변했다'가 아니라 '빌드가 통과했고 근거가 남았다'여야 합니다."
+    },
+    {
+      "id": "next",
+      "section": "next",
+      "layout": "CONTENT",
+      "minutes": 1.5,
+      "kicker": "05 · WHAT COMES NEXT",
+      "title": "앞으로 해야 할 것: 권한은 신뢰만큼만",
+      "lead": "처음부터 전부 맡기지 않고, 검증된 만큼 단계적으로 넓혀 갑니다",
+      "blocks": [
+        {
+          "type": "staircase",
+          "region": {
+            "cols": [
+              0,
+              7
+            ]
+          },
+          "items": [
+            {
+              "level": "L0",
+              "title": "Read",
+              "desc": "읽기 전용 분석 · 검색",
+              "status": "즉시"
+            },
+            {
+              "level": "L1",
+              "title": "Suggest",
+              "desc": "수정안 제안",
+              "status": "즉시"
+            },
+            {
+              "level": "L2",
+              "title": "Patch",
+              "desc": "패치 생성, 적용은 사람",
+              "status": "파일럿"
+            },
+            {
+              "level": "L3",
+              "title": "Build",
+              "desc": "빌드 실행 · 결과 수집",
+              "status": "파일럿"
+            },
+            {
+              "level": "L4",
+              "title": "Deploy",
+              "desc": "승인 후 제한 반영",
+              "status": "승인 후"
+            },
+            {
+              "level": "L5",
+              "title": "Live",
+              "desc": "설비 직접 제어",
+              "status": "제외",
+              "tone": "risk"
+            }
+          ],
+          "tone": "accent"
+        },
+        {
+          "type": "itemList",
+          "region": {
+            "cols": [
+              7,
+              5
+            ]
+          },
+          "marker": "number",
+          "tone": "ink",
+          "heading": "기억할 순서",
+          "items": [
+            {
+              "title": "Harness First",
+              "desc": "모델보다 일하는 환경을 먼저"
+            },
+            {
+              "title": "Spec First",
+              "desc": "코드보다 요구사항과 완료 기준을 먼저"
+            },
+            {
+              "title": "Fine-tuning Later",
+              "desc": "튜닝은 환경과 Spec이 갖춰진 뒤에"
+            }
+          ]
+        }
+      ],
+      "band": "AI는 직접 실행자가 아니라, **엔지니어의 판단을 빠르게 만드는 검증 보조자**로 시작합니다.",
+      "notes": "앞으로는 AI에게 권한을 단계적으로 넓혀 가야 합니다. 읽기 전용 분석에서 시작해 수정안 제안, 패치 생성, 빌드 실행, 승인 후 제한 배포로 올라갑니다. 실제 설비를 직접 제어하는 단계는 원칙적으로 제외합니다. 그리고 순서를 기억하세요. Harness First, Spec First, Fine-tuning Later. 모델을 튜닝하기 전에 환경과 Spec부터 갖추는 것입니다."
+    },
+    {
+      "id": "role",
+      "section": "role",
+      "layout": "CONTENT",
+      "minutes": 2,
+      "kicker": "06 · ROLE SHIFT",
+      "title": "AI 시대에 변하는 역할",
+      "lead": "코드를 '쓰는 사람'에서, AI가 일하는 환경을 '설계하고 책임지는 사람'으로",
+      "blocks": [
+        {
+          "type": "shiftTable",
+          "region": {
+            "cols": [
+              0,
+              12
+            ]
+          },
+          "header": {
+            "from": "예전의 개발자",
+            "to": "AI 시대의 개발자",
+            "tag": "핵심 도구"
+          },
+          "rows": [
+            {
+              "icon": "LuFileText",
+              "from": "코드를 직접 쓰는 사람",
+              "to": "문제를 정의하는 사람",
+              "tag": "Spec"
+            },
+            {
+              "icon": "LuFlaskConical",
+              "from": "직접 디버깅하는 사람",
+              "to": "검증을 설계하는 사람",
+              "tag": "Build · Test"
+            },
+            {
+              "icon": "LuNetwork",
+              "from": "지식을 외우는 사람",
+              "to": "맥락을 연결하는 사람",
+              "tag": "Context · RAG"
+            },
+            {
+              "icon": "LuLayers",
+              "from": "혼자 빠른 사람",
+              "to": "팀이 반복할 수 있게 만드는 사람",
+              "tag": "AGENTS.md · Skills"
+            },
+            {
+              "icon": "LuShieldCheck",
+              "from": "직접 실행하는 사람",
+              "to": "승인하고 책임지는 사람",
+              "tag": "Approval"
+            }
+          ]
+        }
+      ],
+      "band": "AI는 **변경안과 근거**를 만들고, 사람은 **판단하고 책임집니다**.",
+      "notes": "그렇다면 우리의 역할은 어떻게 바뀔까요? 코드를 직접 쓰던 사람은 문제를 정의하는 사람이 되고, 직접 디버깅하던 사람은 검증을 설계하는 사람이 됩니다. 지식을 외우던 사람은 AI가 읽을 맥락을 연결하는 사람이, 혼자 빠르던 사람은 팀이 반복할 수 있는 규칙을 만드는 사람이 됩니다. 그리고 실행하던 사람은 승인하고 책임지는 사람이 됩니다. AI는 변경안과 근거를 만들고, 사람은 판단하고 책임집니다."
+    },
+    {
+      "id": "closing",
+      "section": "close",
+      "layout": "DARK",
+      "minutes": 1.5,
+      "kicker": "CLOSING",
+      "title": "오늘의 세 문장",
+      "blocks": [
+        {
+          "type": "statements",
+          "region": {
+            "cols": [
+              0,
+              8
+            ],
+            "y": 2.85,
+            "h": 3.5
+          },
+          "items": [
+            "프로그래밍의 본질은 코드가 아니라 **문제 정의와 검증**이다.",
+            "AI 시대에는 **Spec이 먼저**이고, 검증은 **하네스**가 강제한다.",
+            "우리의 역할은 '쓰는 사람'에서 **'설계하고 승인하는 사람'**으로 바뀐다."
+          ]
+        },
+        {
+          "type": "contact",
+          "region": {
+            "cols": [
+              8,
+              4
+            ],
+            "y": 2.85,
+            "h": 3.5
+          },
+          "cta": "Q & A",
+          "name": "장윤수 Yunsoo Jang",
+          "lines": [
+            "ysjang0725@gmail.com"
+          ],
+          "tagline": [
+            "Harness First",
+            "Spec First",
+            "Fine-tuning Later"
+          ]
+        }
+      ],
+      "notes": "오늘 내용을 세 문장으로 정리하겠습니다. 첫째, 프로그래밍의 본질은 코드가 아니라 문제 정의와 검증입니다. 둘째, AI 시대에는 Spec이 먼저이고, 검증은 하네스가 강제합니다. 셋째, 우리의 역할은 쓰는 사람에서 설계하고 승인하는 사람으로 바뀝니다. 감사합니다. 질문 받겠습니다."
+    }
+  ]
+}

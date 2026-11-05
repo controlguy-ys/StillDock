@@ -1,0 +1,8 @@
+{
+  "content": "content/lecture.json",
+  "theme": "config/theme.json",
+  "outDir": "out",
+  "fileName": "AI_Era_Programming_Sample_Lecture.pptx",
+  "iconLibrary": "react-icons/lu",
+  "timingTolerance": 0.01
+}

@@ -1,0 +1,22 @@
+{
+  "name": "ai-era-programming-lecture",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Data-driven PPTX generator for the 20-minute sample lecture 'AI 시대의 프로그래밍'",
+  "main": "src/build.js",
+  "scripts": {
+    "build": "node src/build.js",
+    "build:custom": "node src/build.js --content content/lecture.json --theme config/theme.json --out out/lecture.pptx"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "jszip": "3.10.2",
+    "pptxgenjs": "4.0.1",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "react-icons": "5.7.0",
+    "sharp": "0.35.5"
+  }
+}

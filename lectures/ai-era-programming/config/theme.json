@@ -1,0 +1,363 @@
+{
+  "name": "AI Era Programming",
+  "lang": "ko-KR",
+  "page": {
+    "layout": "LAYOUT_WIDE",
+    "w": 13.333,
+    "h": 7.5
+  },
+  "fonts": {
+    "head": "Malgun Gothic",
+    "body": "Malgun Gothic",
+    "code": "Consolas",
+    "eaScripts": [
+      "Hang"
+    ]
+  },
+  "colors": {
+    "dk1": "111827",
+    "lt1": "FFFFFF",
+    "dk2": "374151",
+    "lt2": "F4F5F7",
+    "accent1": "D9661F",
+    "accent2": "157A6E",
+    "accent3": "BE123C",
+    "accent4": "F2B33D",
+    "accent5": "4F46E5",
+    "accent6": "6B7280",
+    "hlink": "4F46E5",
+    "folHlink": "6B7280"
+  },
+  "tones": {
+    "ink": "text1",
+    "ink2": "text2",
+    "paper": "background1",
+    "paper2": "background2",
+    "accent": "accent1",
+    "good": "accent2",
+    "risk": "accent3",
+    "highlight": "accent4",
+    "ai": "accent5",
+    "muted": "accent6"
+  },
+  "schemeToSlot": {
+    "text1": "dk1",
+    "text2": "dk2",
+    "background1": "lt1",
+    "background2": "lt2",
+    "accent1": "accent1",
+    "accent2": "accent2",
+    "accent3": "accent3",
+    "accent4": "accent4",
+    "accent5": "accent5",
+    "accent6": "accent6"
+  },
+  "grid": {
+    "marginX": 0.6,
+    "cols": 12,
+    "gap": 0.3,
+    "kicker": {
+      "y": 0.42,
+      "h": 0.3,
+      "dot": 0.11,
+      "indent": 0.24
+    },
+    "title": {
+      "y": 0.74,
+      "h": 0.68
+    },
+    "lead": {
+      "y": 1.42,
+      "h": 0.42
+    },
+    "contentTop": 2.08,
+    "contentBottomNoBand": 6.72,
+    "band": {
+      "h": 0.62,
+      "bottom": 6.82,
+      "gap": 0.3
+    },
+    "footer": {
+      "y": 7.02,
+      "h": 0.28
+    },
+    "contentTopNoLead": 1.65
+  },
+  "dark": {
+    "kicker": {
+      "y": 1.25
+    },
+    "title": {
+      "y": 1.62,
+      "h": 1.0
+    },
+    "lead": {
+      "y": 2.68,
+      "h": 0.9
+    },
+    "titleColW": 7.2,
+    "contentTop": 2.9,
+    "contentBottom": 6.6
+  },
+  "type": {
+    "kicker": 12,
+    "title": 32,
+    "darkTitle": 48,
+    "lead": 16,
+    "darkLead": 20,
+    "h3": 17,
+    "body": 14,
+    "small": 12,
+    "caption": 11,
+    "code": 13,
+    "band": 16,
+    "stat": 40,
+    "statement": 22,
+    "footer": 10,
+    "kickerCharSpacing": 2
+  },
+  "shape": {
+    "radius": 0.12,
+    "cardPad": 0.22,
+    "chipH": 0.34,
+    "chipPadX": 0.16,
+    "badge": 0.42,
+    "iconCircle": 0.56,
+    "iconScale": 0.52,
+    "iconPx": 256,
+    "arrowW": 0.32,
+    "lineW": 1.5,
+    "chipGap": 0.12,
+    "listGap": 0.14,
+    "hairline": 0.75,
+    "arrowFrac": 0.6
+  },
+  "shadow": {
+    "type": "outer",
+    "blur": 8,
+    "offset": 2,
+    "angle": 90,
+    "opacity": 0.1,
+    "color": "000000"
+  },
+  "tint": {
+    "soft": 88,
+    "medium": 75,
+    "rule": 65
+  },
+  "code": {
+    "lineHeight": 1.3,
+    "barH": 0.4,
+    "dotD": 0.11,
+    "dotTones": [
+      "risk",
+      "highlight",
+      "good"
+    ],
+    "commentTransparency": 45,
+    "tones": {
+      "base": "paper2",
+      "keyword": "highlight",
+      "comment": "paper2",
+      "heading": "highlight",
+      "label": "paper2"
+    },
+    "fill": {
+      "onLight": "ink",
+      "onDark": "ink2"
+    },
+    "syntax": {
+      "st": {
+        "keywords": [
+          "IF",
+          "THEN",
+          "END_IF",
+          "ELSE",
+          "ELSIF",
+          "AND",
+          "OR",
+          "NOT",
+          "TRUE",
+          "FALSE"
+        ],
+        "comment": [
+          "(*",
+          "//"
+        ],
+        "heading": []
+      },
+      "md": {
+        "keywords": [],
+        "comment": [],
+        "heading": [
+          "#"
+        ]
+      },
+      "tree": {
+        "keywords": [],
+        "comment": [
+          "#"
+        ],
+        "heading": []
+      },
+      "js": {
+        "keywords": [
+          "while",
+          "const",
+          "let",
+          "return",
+          "if",
+          "for",
+          "true",
+          "false"
+        ],
+        "comment": [
+          "//"
+        ],
+        "heading": []
+      }
+    }
+  },
+  "measure": {
+    "cjk": 1.0,
+    "upper": 0.66,
+    "lower": 0.54,
+    "digit": 0.58,
+    "space": 0.3,
+    "punct": 0.36,
+    "slack": 1.0,
+    "lineSpacing": 1.22,
+    "fitTolerance": 0.06,
+    "codeEm": 0.55
+  },
+  "blocks": {
+    "chips": {
+      "gap": 0.12
+    },
+    "presenter": {
+      "nameSize": 22,
+      "subSize": 16,
+      "roleSize": 14,
+      "nameH": 0.45
+    },
+    "code": {
+      "labelSize": 12,
+      "dotGap": 0.08,
+      "textInsetY": 0.14
+    },
+    "agenda": {
+      "labelSize": 30,
+      "questionSize": 20,
+      "pad": 0.32,
+      "labelH": 0.55,
+      "questionH": 0.85,
+      "descH": 0.7,
+      "sectionsH": 0.3
+    },
+    "profile": {
+      "avatar": 0.82,
+      "initialsSize": 22,
+      "nameSize": 24,
+      "labelSize": 12,
+      "lineSize": 14,
+      "lineH": 0.4,
+      "pad": 0.3,
+      "nameGap": 0.2,
+      "labelW": 0.55
+    },
+    "stats": {
+      "pad": 0.24,
+      "valueH": 0.7,
+      "unitSize": 16
+    },
+    "cards": {
+      "arrowGap": 0.62,
+      "pad": 0.28,
+      "compactIcon": 0.46,
+      "titleSize": 22,
+      "compactTitleSize": 15,
+      "tagH": 0.32,
+      "descSize": 15,
+      "segH": 0.16,
+      "segGap": 0.08
+    },
+    "steps": {
+      "arrowGap": 0.55,
+      "bracketGap": 0.22,
+      "pad": 0.22,
+      "titleSize": 18,
+      "titleH": 0.4,
+      "descH": 0.55,
+      "itemGap": 0.16
+    },
+    "itemList": {
+      "gap": 0.14,
+      "pad": 0.2,
+      "headingH": 0.42,
+      "headingSize": 14,
+      "loopW": 0.75,
+      "loopInset": 0.28,
+      "inlineTitleW": 1.45,
+      "titleSize": 16
+    },
+    "timeline": {
+      "whenW": 1.0,
+      "dot": 0.16,
+      "pad": 0.3,
+      "titleSize": 16
+    },
+    "quoteCard": {
+      "pad": 0.32,
+      "quoteSize": 24,
+      "flowSize": 14,
+      "labelH": 0.34,
+      "quoteH": 0.9,
+      "flowH": 0.45,
+      "joiner": " → "
+    },
+    "compareFlow": {
+      "pad": 0.26,
+      "labelH": 0.38,
+      "arrowW": 0.3,
+      "chipSize": 12
+    },
+    "compareStatements": {
+      "arrowGap": 0.8,
+      "pad": 0.3,
+      "labelH": 0.32
+    },
+    "staircase": {
+      "gap": 0.1,
+      "minFrac": 0.45,
+      "statusH": 0.38,
+      "pad": 0.09,
+      "maxTransparency": 85,
+      "minTransparency": 20,
+      "levelSize": 12,
+      "titleSize": 13,
+      "descSize": 11,
+      "textTone": "ink"
+    },
+    "shiftTable": {
+      "headerH": 0.34,
+      "gap": 0.12,
+      "fromFrac": 0.29,
+      "tagFrac": 0.2,
+      "arrowW": 0.7,
+      "pad": 0.25,
+      "icon": 0.44
+    },
+    "statements": {
+      "numberW": 0.8,
+      "numberSize": 30
+    },
+    "contact": {
+      "pad": 0.4,
+      "ctaSize": 36,
+      "ctaH": 0.8,
+      "nameSize": 16,
+      "lineSize": 14,
+      "taglineSize": 12
+    }
+  }
+}
