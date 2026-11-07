@@ -1,8 +1,12 @@
 # StillDock
 
-**사진을 공유하기 전, 복사본부터 정리하세요.**
+[![macOS](https://img.shields.io/badge/macOS-14%2B_(Apple_Silicon_%26_Intel)-000000)](#install)
+[![Swift](https://img.shields.io/badge/Swift-6_Toolchain-F05138)](#build-and-verify)
+[![Verification](https://img.shields.io/badge/Verification-Post--Export_Metadata_Audit-10A37F)](#what-it-does)
 
-StillDock is a small, offline macOS workbench for preparing images to share. Keep your originals, choose a size and format, and export new copies with a metadata check.
+**Prepare clean, verified image copies before sharing — (`사진을 공유하기 전, 복사본부터 정리하세요.`)**
+
+StillDock is a native, offline macOS workbench for preparing still images to share. Keep your originals untouched, choose target dimensions and format, strip embedded location/camera metadata (`GPS`, `EXIF`, `IPTC`, `XMP`), and **deterministically re-open and audit every exported file** before reporting completion.
 
 ![StillDock running on macOS with a verified export](docs/screenshot.png)
 
@@ -11,7 +15,7 @@ StillDock is a small, offline macOS workbench for preparing images to share. Kee
 - Import JPEG, PNG, HEIC and HEIF still images in batches of up to 100.
 - Export JPEG or PNG with an optional maximum edge of 1280, 1920 or 2560 pixels, without upscaling.
 - Apply orientation to the pixels and create a fresh sRGB image without copying source GPS, EXIF, IPTC or XMP information.
-- Reopen every output and check its dimensions, format and metadata before reporting success.
+- **Closed-Loop Export Verification**: Reopen every exported file and verify its decoded dimensions, format, and stripped metadata policy before reporting success.
 - Use neutral sequential names in a new output folder; existing files and original images are never overwritten.
 - Show individual results, output sizes, cancellation progress and a shortcut to Finder.
 
@@ -27,10 +31,10 @@ Requires macOS 14 or later on an Apple silicon or Intel Mac. See the release's v
 
 ## Use
 
-1. Click **사진 추가** or press **⌘O** to choose images. Files can also be dropped into the workbench.
+1. Click **Add Photos (`사진 추가`)** or press **⌘O** to choose images. Files can also be dropped into the workbench.
 2. Choose JPEG or PNG and the maximum edge. Review the source metadata indicator.
 3. Choose an output folder and export. StillDock creates a separate folder of numbered copies.
-4. Check the individual results and open the output in Finder.
+4. Check the individual verification results and open the output in Finder.
 
 ## Build and verify
 
